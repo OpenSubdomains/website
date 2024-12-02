@@ -3,13 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Info</title>
-    <script src="script.js" defer></script>
+    <title>GitHub Account Info</title>
 </head>
 <body>
-    <h1>GitHub Account Information</h1>
-    <div id="account-info">
-        <p>Loading your account info...</p>
+    <h1>GitHub Account Info</h1>
+    <div id="user-info">
+        <img id="avatar" src="" alt="Avatar" width="100">
+        <p><strong>Username:</strong> <span id="login"></span></p>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Company:</strong> <span id="company"></span></p>
+        <p><strong>Bio:</strong> <span id="bio"></span></p>
+        <p><strong>Followers:</strong> <span id="followers"></span></p>
+        <p><strong>Following:</strong> <span id="following"></span></p>
+        <p><strong>Public Repositories:</strong> <span id="public_repos"></span></p>
     </div>
+
+    <script>
+        // Function to get URL parameters
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Retrieve user data from the URL parameters
+        const login = getURLParameter('login');
+        const avatar_url = getURLParameter('avatar_url');
+        const name = getURLParameter('name');
+        const company = getURLParameter('company');
+        const bio = getURLParameter('bio');
+        const followers = getURLParameter('followers');
+        const following = getURLParameter('following');
+        const public_repos = getURLParameter('public_repos');
+
+        // Display the user data
+        document.getElementById('login').textContent = login || 'N/A';
+        document.getElementById('avatar').src = avatar_url || '';
+        document.getElementById('name').textContent = name || 'N/A';
+        document.getElementById('company').textContent = company || 'N/A';
+        document.getElementById('bio').textContent = bio || 'N/A';
+        document.getElementById('followers').textContent = followers || '0';
+        document.getElementById('following').textContent = following || '0';
+        document.getElementById('public_repos').textContent = public_repos || '0';
+    </script>
 </body>
 </html>
