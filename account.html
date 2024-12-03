@@ -14,6 +14,10 @@
         <ul id="domains">
             <li>No domains available</li>
         </ul>
+        <div>
+            <button id="registerButton">Register a New Subdomain</button>
+            <button id="refreshButton">Refresh Domains</button>
+        </div>
     </div>
 
     <script>
@@ -44,6 +48,18 @@
                 domainsList.appendChild(listItem);
             });
         }
+
+        // Register button functionality
+        document.getElementById('registerButton').addEventListener('click', () => {
+            window.location.href = 'https://github.com/OpenSubdomains/register';
+        });
+
+        // Refresh button functionality
+        document.getElementById('refreshButton').addEventListener('click', () => {
+            const clientId = 'Ov23liKFBg74PRqSHz4w';
+            const scope = 'repo,user,public_repo,write:repo_hook,user:email';
+            window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=${scope}`;
+        });
     </script>
 </body>
 </html>
