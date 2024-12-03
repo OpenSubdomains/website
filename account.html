@@ -29,8 +29,13 @@
 
         // Function to handle domain clicks
         function handleDomainClick(domain) {
-            
-        }
+            const githubUsername = getURLParameter('name');
+                if (githubUsername) {
+                    window.location.href = `https://opensubdomains-nodejs-serverless.vercel.app/api/register?name=${githubUsername}`;
+                } else {
+            alert("GitHub username not found in the URL.");
+            }
+        };
 
         // Retrieve user data from URL parameters
         const userData = {
