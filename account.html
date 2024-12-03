@@ -27,6 +27,11 @@
             return urlParams.get(name);
         }
 
+        // Function to handle domain clicks
+        function handleDomainClick(domain) {
+            
+        }
+
         // Retrieve user data from URL parameters
         const userData = {
             name: getURLParameter('name') || 'Guest',
@@ -44,7 +49,19 @@
             domainsList.innerHTML = ''; // Clear placeholder
             userData.domains.forEach(domain => {
                 const listItem = document.createElement('li');
-                listItem.textContent = domain;
+                if (domain === 'No domains') {
+                    // Keep "No domains" as plain text
+                    listItem.textContent = domain;
+                } else {
+                    // Create a clickable item that uses the handleDomainClick function
+                    const clickableSpan = document.createElement('span');
+                    clickableSpan.textContent = domain;
+                    clickableSpan.style.color = 'blue';
+                    clickableSpan.style.textDecoration = 'underline';
+                    clickableSpan.style.cursor = 'pointer';
+                    clickableSpan.onclick = () => handleDomainClick(domain);
+                    listItem.appendChild(clickableSpan);
+                }
                 domainsList.appendChild(listItem);
             });
         }
