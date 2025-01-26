@@ -1,49 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - OSD</title>
+  <!-- AdminLTE CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0-beta3/dist/css/adminlte.min.css"
+    crossorigin="anonymous"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  <style>
+    /* Custom Background */
+    body.login-page {
+      background: linear-gradient(to right, #4a90e2, #50c9c3);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-<html lang="en"> 
+    /* Login Box Styling */
+    .login-box {
+      width: 400px;
+      position: relative;
+      z-index: 10;
+    }
 
- <head> 
+    /* Card Frosted Glass Effect */
+    .login-box .card {
+      background: rgba(255, 255, 255, 0.33);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(3.9px);
+      -webkit-backdrop-filter: blur(3.9px);
+    }
 
-  <meta charset="UTF-8"> 
+    /* Button Hover Effect */
+    .btn-dark:hover {
+      background-color: #343a40;
+      transition: 0.3s;
+    }
 
-  <title>Login</title> 
+    /* Logo Styling */
+    .login-logo a {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
 
-  <link rel="stylesheet" href="./style.css"> 
+    .tagline {
+      font-size: 1rem;
+      color: #ddd;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
 
- </head> 
+    /* Footer Styling */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.85rem;
+    }
 
- <body>
+    /* Loading Screen Styling */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      z-index: 1000;
+	  backdrop-filter: blur(3.2px);
+      -webkit-backdrop-filter: blur(3.2px);
+    }
+  </style>
+</head>
+<body class="hold-transition login-page">
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <p>Loading...</p>
+  </div>
 
-  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+  <div class="login-box">
+    <!-- Logo -->
+    <div class="login-logo">
+      <a href="#"><b>OSD</b></a>
+      <p class="tagline">Simplifying Subdomain Management</p>
+    </div>
+    <!-- Card -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to continue</p>
 
-   <div class="signin"> 
+        <!-- GitHub Login Button -->
+        <div class="social-auth-links text-center">
+          <a
+            href="https://github.com/login/oauth/authorize?client_id=Ov23liKFBg74PRqSHz4w&scope=repo,user,public_repo,write:repo_hook,user:email"
+            class="btn btn-block btn-dark"
+            id="github-login-btn"
+          >
+            <i class="fab fa-github mr-2"></i> Sign in with GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="content"> 
+  <!-- Footer -->
+  <footer>
+    <p>
+      Need help? <a href="https://github.com/OpenSubdomains/register/issues/new/choose" style="color: #fff; text-decoration: underline;">Contact Support</a>
+    </p>
+  </footer>
 
-     <h2>Sign In</h2> 
+  <!-- AdminLTE JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0-beta3/dist/js/adminlte.min.js"
+    crossorigin="anonymous"
+  ></script>
 
-     <div class="form"> 
+  <script>
+    document.getElementById("github-login-btn").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default link behavior
+      document.getElementById("loading-screen").style.display = "flex"; // Show loading screen
 
-      <div class="inputBox"> 
-
-       <input type="submit" id="loginButton" value="Login"> 
-
-      </div> 
-
-     </div> 
-
-    </div> 
-
-   </div> 
-
-  </section>
-
- </body>
- 
- <script>
-    document.getElementById('loginButton').addEventListener('click', function() {
-      window.location.href = 'https://github.com/login/oauth/authorize?client_id=Ov23liKFBg74PRqSHz4w&scope=repo,user,public_repo,write:repo_hook,user:email';
+      // Simulate a delay (you can replace this with actual login logic)
+      setTimeout(function() {
+        window.location.href = event.target.href; // Redirect after loading
+      }, 2000); // 2 seconds delay before redirecting
     });
   </script>
-
+</body>
 </html>
